@@ -41,18 +41,16 @@
 
 
 //в
-function once(fn){
-    let call = false;
-    const p = fn;
-    return function(){
-        if(call == false){
-            call = true;
-            return p();
-        }
-        else{
-            return p2;
-        }
+function once(fn) {
+    let called = false;
+    let result;
 
+    return function () {
+        if (!called) {
+            result = fn();   // 1. вызвали и сохранили
+            called = true;   // 2. подняли флаг
+        }
+        return result;       // 3. отдаём — и в первый раз, и во все следующие
     };
 }
 
