@@ -45,3 +45,12 @@ function addTodo(){
 }
 
 addBtn.addEventListener("click", addTodo);
+
+function onListClick(e){
+    if(e.target.tagName === "LI"){
+        e.target.remove();
+    }
+}
+
+todoList.addEventListener("click", onListClick);
+
